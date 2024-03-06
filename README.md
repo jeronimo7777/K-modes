@@ -1,2 +1,1 @@
-Hi. On this task we have a data frame with movies and one with ratings by user. We  use the k-mode algorithm in order to put movies into clusters 
-so we can propοse some to the users. There are also 2 csv files the mocies and the ratings.
+Hi. On this task, we utilize the k-mode algorithm to organize movies into clusters so that we may recommend movies to users. There are also two csv files: movies and ratings.
