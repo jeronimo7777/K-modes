@@ -27,7 +27,7 @@ def top_movies(group):
 
 
 
-def movies_remover(user, ratings, movies):
+def propose_movie(user, ratings, movies):
 
     # 1. We use the ratings of the specific user
     user_ratings1 = ratings[ratings['userId'] == user]
@@ -95,7 +95,7 @@ define_number_of_clusters(movies_categorical_features, maxNumberOfClusters)
 
 
 # Execute KModes again with k=20 to get the final clusters.
-km = KModes(n_clusters=20, init='Huang', n_init=2, verbose=1)
+km = KModes(n_clusters=20, init='Huang', n_init=10, verbose=1)
 clusters = km.fit_predict(movies_categorical_features)
 movies['cluster'] = clusters
 
@@ -111,7 +111,7 @@ average_ratings = average_ratings.rename(columns={'rating': 'aver_rating'})
 movies = pd.merge(movies, average_ratings, on='title', how='left')
 
 user = int(input("Give me the name of the user that you are interested in..."))
-movies.apply(movies_remover(user,ratings,movies))
+movies.apply(propose_movie(user,ratings,movies))
 
 
 
